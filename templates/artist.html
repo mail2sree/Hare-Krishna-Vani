@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- main content -->
+	<main class="main">
+		<div class="container-fluid">
+			<div class="row row--grid">
+				<div class="col-12">
+					<div class="article article--page">
+						<!-- article content -->
+						<div class="article__content">
+							<div class="article__artist">
+								<img src="{{single_prabhu.image}}" alt="">
+								<div>
+									<h1 style="margin-top: 20px;">{{single_prabhu.name}}</h1>
+								</div>
+							</div>
+
+								<p>{{single_prabhu.description}}</p>
+						</div>
+						<!-- end article content -->
+
+						<!-- share -->
+						<div class="share">
+							<a class="share__link share__link--fb" href="https://www.facebook.com/sharer/sharer.php?u=harekrishnavani.com" target="_blank">
+  Share on Facebook
+</a>
+							<a class="share__link share__link--tw"
+  href="https://twitter.com/intent/tweet">
+Tweet</a>
+							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-ca4b763e-ef6e-4f0c-acf7-025a59fe6f36"></div>
+						</div>
+						<!-- end share -->
+					</div>
+				</div>
+			</div>
+	</main>
+	<!-- end main content -->
+{% endblock %}

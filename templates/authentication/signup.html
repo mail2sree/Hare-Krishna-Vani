@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- main content -->
+	<main class="main">
+		<div class="container-fluid">
+			<div class="row row--grid">
+				<!-- breadcrumb -->
+				<div class="col-12">
+					<ul class="breadcrumb">
+						<li class="breadcrumb__item"><a href="/">Home</a></li>
+						<li class="breadcrumb__item breadcrumb__item--active">Sign up</li>
+					</ul>
+				</div>
+				<!-- end breadcrumb -->
+
+				<!-- registration form -->
+				<div class="col-12">
+					<div class="sign">
+						<div class="sign__content">
+							<form action="{% url 'register' %}" method="POST" class="sign__form" style="width: 100% !important;">
+								{% include 'includes/alerts.html' %}
+								{% csrf_token %}
+										<h4 class="text-center text-light">Register</h4>
+										<hr>
+										<div class="alert alert-warning alert-dismissible fade show" role="alert" style="width: 100%;">
+											<h5>Warnings: </h5>
+											<div class="container">
+												<ul><strong>{{form.email.errors}}</strong></ul>
+											</div>
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+											  <span aria-hidden="true">&times;</span>
+											</button>
+										  </div>
+										<hr>
+										{{form.first_name}}
+										<hr>
+											{{form.last_name}}
+											<hr>
+											  {{form.email}}
+											  <hr>
+											{{form.phone_number}}
+											<hr>
+											{{form.password}}
+											<hr>
+											{{form.cpassword}}
+											<hr>
+												<button type="submit" class="sign__btn"> Register  </button>
+								</form>
+						</div>
+					</div>
+				</div>
+				<!-- end registration form -->
+			</div>
+		</div>
+	</main>
+	<!-- end main content -->
+{% endblock %}

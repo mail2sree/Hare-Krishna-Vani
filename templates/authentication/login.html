@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- main content -->
+	<main class="main">
+		<div class="container-fluid">
+			<div class="row row--grid">
+				<!-- breadcrumb -->
+				<div class="col-12">
+					<ul class="breadcrumb">
+						<li class="breadcrumb__item"><a href="index.html">Home</a></li>
+						<li class="breadcrumb__item breadcrumb__item--active">Sign in</li>
+					</ul>
+				</div>
+				<!-- end breadcrumb -->
+
+				<!-- sign in -->
+				<div class="col-12">
+					<div class="sign">
+						<div class="sign__content">
+							<!-- authorization form -->
+							<form action="{% url 'login' %}" class="sign__form" method="POST">
+                                {% csrf_token %}
+                                <div class="sign__group">
+                                    {% include 'includes/alerts.html' %}                                   
+                                </div>
+								<div class="sign__group">
+									<input type="text" class="sign__input" placeholder="Email" name="email" id="email">
+								</div>
+
+								<div class="sign__group">
+									<input type="password" class="sign__input" placeholder="Password" name="password" id="password">
+								</div>
+
+								<div class="sign__group sign__group--checkbox">
+									<input id="remember" name="remember" type="checkbox" checked="checked">
+									<label for="remember">Remember Me</label>
+								</div>
+								
+								<button class="sign__btn" type="submit">Sign in</button>
+
+							</form>
+							<!-- end authorization form -->
+						</div>
+					</div>
+				</div>
+				<!-- end sign in -->
+			</div>
+		</div>
+	</main>
+	<!-- end main content -->
+{% endblock %}
